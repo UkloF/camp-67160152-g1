@@ -93,7 +93,7 @@
                 <div class="col-sm-12 col-md-4">
                     <label for="shee">สี</label>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <select class="form-select" aria-label="Default select example" id="shee">
                         <option selected>สีที่ชอบ</option>
                         <option value="1">แดง</option>
