@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ส่วนหัว HTML</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
-</head>
-<body>
-    <div class="container mt-4 mb-4 ms-8">
-        <h1>Workshop #HTML - FORM</h1>
-        <form class=>
+@extends('template.default')
+
+
+@section('content')
+    <h1>Workshop #HTML - FORM</h1>
+    <form>
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <label for="fname">ชื่อ</label>
                 </div>
                 <div class="col">
                     <input id="fname" class="form-control">
+                    <div class="valid-feedback">
+                        ถูกต้อง
+                    </div>
+                    <div class="invalid-feedback">
+                        โปรดระบุชื่อ
+                    </div>
                 </div>
             </div>
 
@@ -127,7 +123,7 @@
                     </label>
                 </div>
             </div>
-            
+
             <div class="form-check mt-4">
                 <input class="form-check-input" type="checkbox" value="" id="yinyom">
                 <label class="form-check-label" for="yinyom">
@@ -140,31 +136,41 @@
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-success" onclick="clickMe()">Submit</button>
                 </div>
             </div>
         </form>
-    </div>
-</body>
-    <style>
-        body{
-            font-family: "Prompt", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            background: rgb(212, 204, 187);
-            font-size: 14px;
-            /* background-image: url('https://i.redd.it/00gl7374rjmf1.jpeg'); */
-            
+
+@endsection
+
+@push('scripts')
+    <script>
+        let clickMe = function(){
+            let fname = document.getElementById('fname');
+            // fname.value = "from clickme";
+            // console.log(fname.value);
+            if(fname.value == ""){
+                fname.classList.remove('is-valid');
+                fname.classList.add('is-invalid');
+            }else{
+                fname.classList.remove('is-invalid');
+                fname.classList.add('is-valid');
+            }
         }
-        .container{
-            background: rgb(183, 175, 149);
-            width: 500px;
-            border-radius: 15px;
-            padding: 30px 40px;
+
+
+        // clickMe();
+        let myfunc =(callback) =>{
+            callback("in callback");
         }
-        h1{
-            font-size: 32px;
+
+        callme = (param) =>{
+            console.log(param);
         }
-        
-    </style>
-</html>
+        myfunc(callme)
+
+        console.log('Hello World! JS')
+        console.error('Hello Error!');
+        console.warn('Hello Warn!');
+    </script>
+@endpush
