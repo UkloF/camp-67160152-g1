@@ -3,13 +3,14 @@
 
 @section('content')
     <h1>Workshop #HTML - FORM</h1>
-    <form>
+    <form method="post">
+            @csrf
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <label for="fname">ชื่อ</label>
                 </div>
                 <div class="col">
-                    <input id="fname" class="form-control">
+                    <input id="fname" class="form-control" name="fname">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -24,7 +25,7 @@
                     <label for="lname">สกุล</label>
                 </div>
                 <div class="col">
-                    <input id="lname" class="form-control">
+                    <input id="lname" class="form-control" name="lname">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -39,7 +40,7 @@
                     <label for="Bday">วัน/เดือน/ปีเกิด</label>
                 </div>
                 <div class="col">
-                    <input type="date" id="Bday" class="form-control">
+                    <input type="date" id="Bday" class="form-control" name="Bday">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -54,7 +55,7 @@
                     <label for="age">อายุ</label>
                 </div>
                 <div class="col">
-                    <input id="age" class="form-control">
+                    <input id="age" class="form-control" name="age">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -69,7 +70,7 @@
                     <label>เพศ</label>
                 </div>
                 <div class="col-md-2">
-                    <input class="form-check-input" type="radio" name="phed" id="male">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="ชาย">
                     <label class="form-check-label" for="male">
                         ชาย
                     </label>
@@ -81,7 +82,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input class="form-check-input" type="radio" name="phed" id="female">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="หญิง">
                     <label class="form-check-label" for="female">
                         หญิง
                     </label>
@@ -94,7 +95,7 @@
                     <label>รูป</label>
                 </div>
                 <div class="col">
-                    <input class="form-control form-control-sm" id="fileInput" type="file">
+                    <input class="form-control form-control-sm" id="fileInput" type="file" name="picture">
                     <div class="valid-feedback">
                         ถูกต้อง
                     </div>
@@ -111,7 +112,7 @@
                 </div>
                 <div class="col">
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="address" style="height: 100px"></textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="address" name="address" style="height: 100px"></textarea>
                         <label for="address">ที่อยู่</label>
                         <div class="valid-feedback">
                             ถูกต้อง
@@ -126,15 +127,15 @@
 
             <div class="row mt-2">
                 <div class="col-sm-12 col-md-4">
-                    <label for="color">สี</label>
+                    <label for="color">สีที่ชอบ</label>
                 </div>
                 <div class="col-md-4">
-                    <select class="form-select" aria-label="Default select example" id="color">
-                        <option selected>สีที่ชอบ</option>
-                        <option value="1">แดง</option>
-                        <option value="2">ดำ</option>
-                        <option value="3">ขาว</option>
-                        <option value="4">ชมพู</option>
+                    <select class="form-select" aria-label="Default select example" id="color" name="color">
+                        <option value="" selected>เลือกสี</option>
+                        <option value="แดง">แดง</option>
+                        <option value="ดำ">ดำ</option>
+                        <option value="ขาว">ขาว</option>
+                        <option value="ชมพู">ชมพู</option>
                     </select>
                     <div class="valid-feedback">
                         ถูกต้อง
@@ -150,7 +151,7 @@
                     <label>แนวเพลงที่ชอบ</label>
                 </div>
                 <div class="col-md-2">
-                    <input class="form-check-input" type="radio" name="music" id="pop">
+                    <input class="form-check-input" type="radio" name="music" id="pop" value="ป๊อป">
                     <label class="form-check-label" for="pop">
                         ป๊อป
                     </label>
@@ -162,13 +163,13 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input class="form-check-input" type="radio" name="music" id="rock">
+                    <input class="form-check-input" type="radio" name="music" id="rock" value="ร๊อค">
                     <label class="form-check-label" for="rock">
                         ร๊อค
                     </label>
                 </div>
                 <div class="col-md-3">
-                    <input class="form-check-input" type="radio" name="music" id="folk">
+                    <input class="form-check-input" type="radio" name="music" id="folk" value="ลูกทุ่ง">
                     <label class="form-check-label" for="folk">
                         ลูกทุ่ง
                     </label>
@@ -176,7 +177,7 @@
             </div>
 
             <div class="form-check mt-4">
-                <input class="form-check-input" type="checkbox" value="" id="consent">
+                <input class="form-check-input" type="checkbox" value="ยินยอม" id="consent" name="consent">
                 <label class="form-check-label" for="consent">
                     ยินยอมให้เก็บข้อมูล
                 </label>
@@ -190,7 +191,7 @@
                     <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-success" onclick="clickMe()">Submit</button>
+                    <button class="btn btn-success" onclick="clickMe()">Submit</button>
                 </div>
             </div>
         </form>
@@ -268,7 +269,7 @@
             }
 
             let color = document.getElementById('color');
-            if (color.value == "สีที่ชอบ") {
+            if (color.value == "") {
                 color.classList.remove('is-valid');
                 color.classList.add('is-invalid');
             } else {

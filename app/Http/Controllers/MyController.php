@@ -13,6 +13,10 @@ class MyController extends Controller
     // Controller
     // MyController()
 
+    function firstPage(){
+        return view('html101');
+    }
+
     function index(){
 
         return view('myviews.index');
@@ -26,6 +30,11 @@ class MyController extends Controller
         // echo $req->input('mynumber');
         $data['num'] = $req->input('mynumber');
         return view('myviews.calculate',$data);
+    }
+
+    function store(Request $req){
+        $data = $req->all();
+        return view('html101_view', $data);
     }
 
 }
