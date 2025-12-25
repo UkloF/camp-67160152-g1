@@ -15,7 +15,7 @@
             font-family: "Prompt", sans-serif;
             font-weight: 400;
             font-style: normal;
-            background: rgb(212, 204, 187);
+            background: rgb(146, 139, 122);
             font-size: 14px;
             /* background-image: url('https://i.redd.it/00gl7374rjmf1.jpeg'); */
 
@@ -27,7 +27,10 @@
             padding: 30px 40px;
         }
         h1{
-            font-size: 40px;
+            font-size: 32px;
+        }
+        header{
+            font-size: 32px;
         }
 
     </style>
@@ -35,7 +38,7 @@
 </html>
 <body>
     <div class="container mt-4">
-        <h1>File Default</h1>
+        <header>@yield('header')</header>
         @yield('content')
     </div>
     @stack('scripts')
