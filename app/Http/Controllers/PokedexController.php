@@ -85,6 +85,8 @@ class PokedexController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pokedex = Pokedex::find($id);
+        $pokedex->delete();
+        return redirect('/pokedexs');
     }
 }
